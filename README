@@ -1,10 +1,10 @@
 
-Author		: Dinesh Devaraj
+Author      : Dinesh Devaraj
 
-Contact		: www.techybook.com
-				: dinesh@techybook.com
+Contact     : www.techybook.com
+            : dinesh@techybook.com
 
-Created		: 29 Jun 2015 - Mon
+Created     : 29 Jun 2015 - Mon
 
 Description : Soketpp is a C++ wrapper for sockets. Entire code contained in 
-				  single source and header makes very simple to included in projects
+              single source and header makes very simple to included in projects
