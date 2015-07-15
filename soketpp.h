@@ -7,7 +7,7 @@ namespace Soketpp
 
    struct Error_t
    {
-      size_t      line;
+      long      line;
       const char *file;
       const char *function;
       const char *message;
@@ -41,39 +41,39 @@ namespace Soketpp
       void Setup(const char *host, const char *port);
 
       /* NULL terminated string */
-      size_t Send(const char *str);
+      long Send(const char *str);
 
       /* block untill len byte is send */
-      size_t Send(const Byte *hay, size_t len);
+      long Send(const Byte *hay, long len);
 
-      size_t Send(const char *str, const char chdlm);
+      long Send(const char *str, const char chdlm);
 
       /* send untill strdlm reached */
-      size_t Send(const char *str, const char *strdlm);
+      long Send(const char *str, const char *strdlm);
 
       /* send byte <= len before timeout and return */
-      size_t Send(const Byte *hay, size_t len, int timeout);
+      long Send(const Byte *hay, long len, int timeout);
 
-      size_t Send(const char *str, const char chdlm, int timeout);
+      long Send(const char *str, const char chdlm, int timeout);
 
       /* send untill strdlm reached with timeout */
-      size_t Send(const char *str, const char *strdlm, int timeout);
+      long Send(const char *str, const char *strdlm, int timeout);
 
       /* recv till connection close */
-      size_t Recv(Byte *hay);
+      long Recv(Byte *hay);
 
       /* block untill len byte recived */
-      size_t Recv(Byte *hay, size_t len);
+      long Recv(Byte *hay, long len);
 
-      size_t Recv(char *str, const char chdlm);
+      long Recv(char *str, const char chdlm);
 
-      size_t Recv(char *str, const char *strdlm);
+      long Recv(char *str, const char *strdlm);
 
-      size_t Recv(Byte *hay, size_t len, int timeout);
+      long Recv(Byte *hay, long len, int timeout);
 
-      size_t Recv(char *str, const char chdlm, int timeout);
+      long Recv(char *str, const char chdlm, int timeout);
 
-      size_t Recv(char *str, const char *strdlm, int timeout);
+      long Recv(char *str, const char *strdlm, int timeout);
 
       ~Connection_t();
    };

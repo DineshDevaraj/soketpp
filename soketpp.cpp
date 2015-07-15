@@ -130,15 +130,15 @@ void Connection_t::Setup(const char *host, const char *port)
    id = sd;
 }
 
-size_t Connection_t::Send(const char *str)
+long Connection_t::Send(const char *str)
 {
    return Send((const Byte *)str, strlen(str));
 }
 
-size_t Connection_t::Send(const Byte *hay, size_t len)
+long Connection_t::Send(const Byte *hay, long len)
 {
-   size_t sl = 0;  /* send length */
-   size_t tl = 0;  /* total length */
+   long sl = 0;  /* send length */
+   long tl = 0;  /* total length */
 
    while(tl < len)
    {
@@ -150,12 +150,12 @@ size_t Connection_t::Send(const Byte *hay, size_t len)
    return tl;
 }
 
-size_t Connection_t::Send(const Byte *hay, size_t len, int timeout)
+long Connection_t::Send(const Byte *hay, long len, int timeout)
 {
    int epfd;
    
-   size_t tl = 0;
-   size_t sl = 0;
+   long tl = 0;
+   long sl = 0;
 
    struct epoll_event epev = {};
 
@@ -196,27 +196,27 @@ size_t Connection_t::Send(const Byte *hay, size_t len, int timeout)
    return tl;
 }
       
-size_t Connection_t::Send(const char *str, const char chdlm)
+long Connection_t::Send(const char *str, const char chdlm)
 {
-   return Send((const Byte *)str, (size_t)(strchr(str, chdlm) - str));
+   return Send((const Byte *)str, (long)(strchr(str, chdlm) - str));
 }
 
-size_t Connection_t::Send(const char *str, const char *strdlm)
+long Connection_t::Send(const char *str, const char *strdlm)
 {
-   return Send((const Byte *)str, (size_t)(strstr(str, strdlm) - str));
+   return Send((const Byte *)str, (long)(strstr(str, strdlm) - str));
 }
 
-size_t Connection_t::Send(const char *str, const char chdlm, int timeout)
+long Connection_t::Send(const char *str, const char chdlm, int timeout)
 {
-   return Send((const Byte *)str, size_t(strchr(str, chdlm) - str), timeout);
+   return Send((const Byte *)str, long(strchr(str, chdlm) - str), timeout);
 }
       
-size_t Connection_t::Send(const char *str, const char *strdlm, int timeout)
+long Connection_t::Send(const char *str, const char *strdlm, int timeout)
 {
-   return Send((const Byte *)str, size_t(strstr(str, strdlm) - str), timeout);
+   return Send((const Byte *)str, long(strstr(str, strdlm) - str), timeout);
 }
    
-size_t Connection_t::Recv(Byte *hay)
+long Connection_t::Recv(Byte *hay)
 {
    int tl = 0;
    int rl = 0;
@@ -231,7 +231,7 @@ size_t Connection_t::Recv(Byte *hay)
    return tl;
 }
       
-size_t Connection_t::Recv(Byte *hay, size_t len)
+long Connection_t::Recv(Byte *hay, long len)
 {
    int tl = 0;
    int rl = 0;
@@ -246,12 +246,12 @@ size_t Connection_t::Recv(Byte *hay, size_t len)
    return tl;
 }
       
-size_t Connection_t::Recv(Byte *hay, size_t len, int timeout)
+long Connection_t::Recv(Byte *hay, long len, int timeout)
 {
    int epfd = 0;
 
-   size_t tl = 0;
-   size_t rl = 0;
+   long tl = 0;
+   long rl = 0;
 
    struct epoll_event epev = {};
 
@@ -292,7 +292,7 @@ size_t Connection_t::Recv(Byte *hay, size_t len, int timeout)
    return tl;
 }
       
-size_t Connection_t::Recv(char *str, const char chdlm)
+long Connection_t::Recv(char *str, const char chdlm)
 {
    int tl = 0;
    int rl = 0;
@@ -309,7 +309,7 @@ size_t Connection_t::Recv(char *str, const char chdlm)
    return tl;
 }
 
-size_t Connection_t::Recv(char *str, const char *strdlm)
+long Connection_t::Recv(char *str, const char *strdlm)
 {
    int tl = 0;
    int rl = 0;
@@ -326,12 +326,12 @@ size_t Connection_t::Recv(char *str, const char *strdlm)
    return tl;
 }
       
-size_t Connection_t::Recv(char *str, const char chdlm, int timeout)
+long Connection_t::Recv(char *str, const char chdlm, int timeout)
 {
    int epfd = 0;
 
-   size_t tl = 0;
-   size_t rl = 0;
+   long tl = 0;
+   long rl = 0;
 
    struct epoll_event epev = {};
 
@@ -374,12 +374,12 @@ size_t Connection_t::Recv(char *str, const char chdlm, int timeout)
    return tl;
 }
 
-size_t Connection_t::Recv(char *str, const char *strdlm, int timeout)
+long Connection_t::Recv(char *str, const char *strdlm, int timeout)
 {
    int epfd = 0;
 
-   size_t tl = 0;
-   size_t rl = 0;
+   long tl = 0;
+   long rl = 0;
 
    struct epoll_event epev = {};
 

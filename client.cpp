@@ -19,7 +19,7 @@ int main(int argc, char *argv[])
    }
    catch(Error_t err)
    {
-      printf("%s() %u %s\n", err.function, err.line, err.message);
+      printf("%s() %ld %s\n", err.function, err.line, err.message);
    }
    return 0;
 }
