@@ -62,19 +62,11 @@ Connection_t::Connection_t(const char *host, const char *port)
    Setup(host, port);
 }
 
-void Connection_t::Close()
-{
-   close(id);
-}
-
 void Connection_t::operator = (int id)
 {
    this->id = id;
    struct sockaddr sa = {};
    socklen_t salen = sizeof sa;
-
-   memset(host, 0, sizeof host);
-   memset(port, 0, sizeof port);
 
    if(-1 == getpeername(id, &sa, &salen))
       THROW(strerror(errno));
@@ -97,7 +89,10 @@ void Connection_t::Setup(const char *host, const char *port)
       strcpy(this->port, port);
    else THROW("Port cannot be empty");
    
-   if(host && *host) strcpy(this->host, host);
+   if(host && *host) 
+      strcpy(this->host, host);
+   else 
+      memset(this->host, 0, sizeof this->host);
 
    printf("Getaddfinfo %s:%s\n", host, port);
 
@@ -128,6 +123,11 @@ void Connection_t::Setup(const char *host, const char *port)
    freeaddrinfo(resl);
    if(NULL == itr) THROW("Not able to connect");
    id = sd;
+}
+
+void Connection_t::Close()
+{
+   close(id);
 }
 
 long Connection_t::Send(const char *str)
@@ -475,7 +475,10 @@ void Server_t::Setup(const char *host, const char *port)
       strcpy(this->port, port);
    else THROW("Port cannot be empty");
    
-   if(host && *host) strcpy(this->host, host);
+   if(host && *host) 
+      strcpy(this->host, host);
+   else 
+      memset(this->host, 0, sizeof this->host);
 
    memset(&hint, 0, sizeof hint);
    hint.ai_flags = AI_PASSIVE;

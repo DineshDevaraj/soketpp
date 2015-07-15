@@ -11,10 +11,12 @@ int main(int argc, char *argv[])
    {
       for(int I = 0; I < 10; I++)
       {
+         char data[128] = {};
          Connection_t conn(argv[1], "8080");
-         printf("Connection id : %d\n", conn.id);
+         printf("Connection %s %s %d\n", conn.host, conn.port, conn.id);
          conn.Send("Hello world! ");
-         conn.Close();
+         conn.Recv(data, '\n');
+         printf("%s", data);
       }
    }
    catch(Error_t err)

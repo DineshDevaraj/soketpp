@@ -7,7 +7,7 @@ namespace Soketpp
 
    struct Error_t
    {
-      long      line;
+      long        line;
       const char *file;
       const char *function;
       const char *message;
@@ -18,8 +18,8 @@ namespace Soketpp
    {  
       int id;
 
-      char host[8];
-      char port[46];
+      char port[8];
+      char host[46];
 
       Error_t error;
    };
