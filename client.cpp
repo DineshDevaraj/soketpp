@@ -15,8 +15,8 @@ int main(int argc, char *argv[])
          Connection_t conn(argv[1], "8080");
          printf("Connection %s %s %d\n", conn.host, conn.port, conn.id);
          conn.Send("Hello world! ");
-         conn.Recv(data, '\n');
-         printf("%s", data);
+         conn.Recv(data, "\n");
+         printf("%s\n", data);
       }
    }
    catch(Error_t err)

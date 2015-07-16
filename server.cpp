@@ -18,7 +18,7 @@ int main(int argc, char *argv[])
          printf("server %s %s %d\n", server.host, server.port, server.id);
          conn = server.Accept();
          printf("connection %s %s %d\n", conn.host, conn.port, conn.id);
-         conn.Recv((Byte *)data, ' ');
+         conn.Recv(data, ' ');
          printf("<%s>\n", data);
          conn.Send("Welcome to Soketpp\n");
       }

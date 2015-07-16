@@ -6,5 +6,5 @@ Contact     : www.techybook.com
 
 Created     : 29 Jun 2015 - Mon
 
-Description : Soketpp is a C++ wrapper for sockets. Entire code contained in 
-              single source and header makes very simple to include in projects
+Description : C++ wrapper for sockets. Entire code contained in single 
+              source and header makes very simple to include in projects
